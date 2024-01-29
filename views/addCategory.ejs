@@ -1,0 +1,11 @@
+<%- include("partials/top") %>
+<div class="card-body">
+    <h2>Add category</h2>
+    <form action="/category/add" method="POST">
+        <input class="form-control mb-3" type="text" placeholder="Category name" name="category">
+        <input class="form-control mb-3" type="color" name="color">
+        <button class="btn btn-primary">ADD</button>
+    </form>
+</div>
+<%- include("partials/bottom") %>
+
