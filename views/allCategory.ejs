@@ -4,9 +4,10 @@
     <ul class="list-group">
         <% category.forEach((cat)=>{ %>
             <li class="list-group-item" style="background-color: <%= cat.color; %> ">
-                <a href="/category/task/<%= cat.id %>">
+                <a href="/category/<%= cat.id %>/task">
                     <%= cat.category; %>
                 </a>
+                <span><%= cat.numberTask %></span>
             </li>
         <% }); %>
     </ul>
