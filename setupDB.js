@@ -26,7 +26,7 @@ const taskSQL = "CREATE TABLE task " +
     let tables = [categorySQL, prioritySQL, taskSQL];
     try {
         tables.forEach(async (sql) => {
-            await poolDB.execute(sql);
+            await poolDB(sql);
         });
         console.log("Tabele su kreirane");
     } catch (error) {

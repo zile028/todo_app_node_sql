@@ -1,0 +1,15 @@
+<%- include("partials/top") %>
+<div class="card-body">
+    <h2>All priority</h2>
+    <ul class="list-group">
+        <% priorites.forEach((pri)=>{ %>
+            <li class="list-group-item" style="background-color: <%= pri.color; %> ">
+                <a href="/category/<%= pri.id %>/task">
+                    <%= pri.priority; %>
+                </a>
+                <span><%= pri.NumberOfTasks %></span>
+            </li>
+        <% }); %>
+    </ul>
+</div>
+<%- include("partials/bottom") %>

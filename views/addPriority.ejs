@@ -1,0 +1,10 @@
+<%- include("partials/top") %>
+<div class="card-body">
+    <h2>Add priority</h2>
+    <form action="/priority/add" method="POST">
+        <input class="form-control mb-3" type="text" placeholder="Priority name" name="priority">
+        <input class="form-control mb-3" type="color" name="color">
+        <button class="btn btn-primary">ADD</button>
+    </form>
+</div>
+<%- include("partials/bottom") %>
