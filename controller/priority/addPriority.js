@@ -1,18 +1,18 @@
-const poolDB = require("../../utils/connection")
-const addPriority= async (req,res)=>{
+const poolDB = require("../../utils/connection");
+const addPriority = async (req, res, next) => {
     let reqBody = req.body;
     let sql = `
-        INSERT INTO priority(priority, color) VALUES (:priority, :color) 
-    `
+        INSERT INTO priority(priority, color)
+        VALUES (:priority, :color)
+    `;
     try {
         let result = await poolDB(sql, reqBody);
-        console.log(result);
-        res.redirect("/priority/add")
+        res.redirect("/priority/add");
     } catch (error) {
-        next(error)       
+        next(error);
     }
 
-}
+};
 
 
-module.exports=addPriority;
+module.exports = addPriority;

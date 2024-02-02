@@ -1,7 +1,11 @@
 const dayjs = require("dayjs");
 
-function formatDate(data) {
-    return dayjs(data).format("DD.MM.YYYY.");
+function formatDate(date) {
+    return dayjs(date).format("DD.MM.YYYY.");
 }
 
-module.exports = {formatDate};
+function formatInputDate(date) {
+    return dayjs(date).format("YYYY-MM-DD");
+}
+
+module.exports = {formatDate, formatInputDate};

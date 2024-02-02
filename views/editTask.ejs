@@ -1,0 +1,31 @@
+<%- include("partials/top") %>
+<div class="card-body">
+    <h2>Edit task</h2>
+    <form action="/task/update" method="POST">
+        <input type="hidden" name="taskID" value="<%= task.id ;%>">
+        <input class="form-control mb-3" type="text" placeholder="Title" name="title" value="<%= task.title; %>">
+        <textarea class="form-control mb-3" name="description" placeholder="Description" cols="30"
+                  rows="5"><%= task.description; %></textarea>
+        <lable>Deadline</lable>
+        <input class="form-control mb-3" type="date" name="deadline" value="<%= formatInputDate(task.deadline) %>">
+        <lable>Category</lable>
+        <select class=" form-control mb-3" name="categoryID">
+            <% category.forEach((cat)=>{ %>
+                <option <%= cat.id === task.categoryID ? "selected" : "" %>
+                        value="<%= cat.id; %>"><%= cat.category; %></option>
+            <% }); %>
+        </select>
+        <lable>Priority</lable>
+        <select class="form-control mb-3" name="priorityID">
+            <% priority.forEach((pri)=>{ %>
+                <option <%= pri.id === task.priorityID ? "selected" : "" %>
+                        value="<%= pri.id; %>"><%= pri.priority; %></option>
+            <% }); %>
+        </select>
+        <button class="btn btn-primary">UPDATE</button>
+    </form>
+
+
+</div>
+<%- include("partials/bottom") %>
+

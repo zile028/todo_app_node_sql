@@ -1,0 +1,16 @@
+<%- include("partials/top") %>
+<div class="card-body">
+    <h2 class="text-center">TASK DETAIL</h2>
+    <h4><%= task.title; %></h4>
+    <p><%= task.description %></p>
+    <ul>
+        <li style="background-color: <%= task.categoryColor %>">Category: <%= task.category %></li>
+        <li style="background-color: <%= task.priorityColor %>">Priority: <%= task.priority %></li>
+        <li>Deadline: <%= formatDate(task.deadline) %></li>
+        <li>Created at: <%= formatDate(task.createdAt) %></li>
+        <li>Status: <%= task.isDone ? "Done" : "Not done" %></li>
+    </ul>
+    <a href="/task/<%= task.id %>/edit" class="btn btn-warning">Edit</a>
+</div>
+<%- include("partials/bottom") %>
+

@@ -4,12 +4,13 @@ const pool = mysql.createPool({
     user: 'root',
     password: '',
     database: 'todo_app',
-    namedPlaceholders: true
+    namedPlaceholders: true,
+    multipleStatements: true
 });
 
 const poolDB = async (sql, params) => {
     try {
-        let [result] = await pool.execute(sql, params);
+        let [result] = await pool.query(sql, params);
         return result;
     } catch (error) {
         return new Error(error.message);

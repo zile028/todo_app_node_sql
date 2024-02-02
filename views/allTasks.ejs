@@ -4,24 +4,23 @@
         <p>You dont have any tasks.</p>
     <% } else { %>
         <% tasks.forEach((task)=>{ %>
-            <div class="border border-1 border-dark rounded-2 mb-2 p-2 position-relative">
+            <div id="<%= task.id; %>" class="border border-1 border-dark rounded-2 mb-2 p-2 position-relative">
                 <% if(task.isDone){ %>
                     <a class="badge bg-primary position-absolute end-0 top-0 translate-middle-y"
-                       href="/task/<%= task.id %>/status/0">Done</a>
+                       href="/task/<%= task.id; %>/status/0">Done</a>
                 <% } else { %>
                     <a class="badge bg-danger position-absolute end-0 top-0 translate-middle-y"
-                       href="/task/<%= task.id %>/status/1">Active</a>
+                       href="/task/<%= task.id; %>/status/1">Active</a>
                 <% } %>
-
                 <p class="badge text-white p-1"
-                   style="background-color: <%= task.priorityColor %>"><%= task.priority %></p>
-                <h4><%= task.title %></h4>
+                   style="background-color: <%= task.priorityColor; %>"><%= task.priority; %></p>
+                <h4><a href="/task/<%= task.id; %>"><%= task.title; %></a></h4>
                 <p class="badge text-white p-1"
-                   style="background-color: <%= task.categoryColor %>"><%= task.category %></p>
-                <p><%= formatDate(task.deadline) %></p>
+                   style="background-color: <%= task.categoryColor; %>"><%= task.category; %></p>
+                <p><%= formatDate(task.deadline); %></p>
+                <a href="/task/<%= task.id %>/edit" class="btn btn-warning">Edit</a>
             </div>
-        <% }) %>
+        <% }); %>
     <% } %>
-
 </div>
 <%- include("partials/bottom") %>
